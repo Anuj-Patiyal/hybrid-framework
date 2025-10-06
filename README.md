@@ -24,7 +24,7 @@
 ## 📌 Project Overview
 This project establishes the foundation for a robust Selenium WebDriver automation framework using **Java 21**, **TestNG**, and **Maven**.
 
-### 🎯 Goals of v0.0.0:
+### 🎯 Goals of v0.1.0:
 - Set up initial Maven `pom.xml` with Java 21 compatibility.
 - Add Selenium and TestNG dependencies.
 - Configure Maven Compiler and Clean plugins.
@@ -45,7 +45,7 @@ hybrid-framework/
 └── README.md               # Project documentation
 ```
 
-### 📦 Dependency Graph (v0.0.0)
+### 📦 Dependency Graph (v0.1.0)
 ```mermaid
 graph TD
     Java21 --> Maven
@@ -65,14 +65,14 @@ We follow **Git Flow** with the following branches:
 gitGraph
    commit id: "Initial commit"
    branch dev
-   commit id: "v0.0.0: Maven Setup"
-   branch feature/maven-setup
+   commit id: "v0.1.0: First test"
+   branch feature/first-test
    commit id: "Maven Compiler, Selenium & TestNG"
    checkout dev
-   merge feature/maven-setup
+   merge feature/first-test
    checkout main
    merge dev
-   tag v0.0.0
+   tag v0.1.0
 ```
 
 - `main`: Stable production-ready code
@@ -89,7 +89,7 @@ We follow **Semantic Versioning (SemVer)**:
 - `MINOR`: Backward-compatible features
 - `PATCH`: Bug fixes
 
-Current version: **v0.0.0**
+Current version: **v0.1.0**
 
 ---
 
@@ -181,7 +181,7 @@ A[feature/*] --> B[Pull Request to dev]
 B --> C[Review and Merge into dev]
 C --> D[Pull Request to main]
 D --> E[Merge to main]
-E --> F[Tag as v0.0.0]
+E --> F[Tag as v0.1.0]
 ```
 
 ---
@@ -190,8 +190,8 @@ E --> F[Tag as v0.0.0]
 
 | Version | Feature(s)                              | Status    | Target Date |
 | ------- | --------------------------------------- | --------- | ----------- |
-| v0.0.0  | Framework initial (Maven + CICD) setup  | ⏳ Planned | 06-Oct-2025 |
-| v0.1.0  | Simple Test Creation                    | ⏳ Planned | 10-Oct-2025 |
+| v0.0.0  | Framework initial (Maven + CICD) setup  | ✅ Live    | 06-Oct-2025 |
+| v0.1.0  | Simple Test Creation                    | 🚧 WIP     | 10-Oct-2025 |
 | v0.2.0  | Configuration setup                     | ⏳ Planned | 14-Oct-2025 |
 | v0.3.0  | Log4j2 integration                      | ⏳ Planned | 18-Oct-2025 |
 | v0.4.0  | Exception Handling                      | ⏳ Planned | 22-Oct-2025 |
