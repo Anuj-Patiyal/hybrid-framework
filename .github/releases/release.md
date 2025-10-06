@@ -1,160 +1,38 @@
 ---
-title: "🎯 Release v0.1.0 - First Simple Test"
+title: "🎯 Configuration management"
 assignees: Anuj-Patiyal
 reviewers: opencode-qa
-milestone: v0.1.0
-linked_issue: 6
-labels: test, first-test
+milestone: v0.2.0
+linked_issue: 11
+labels: Configuration, setup
 ---
 
-# 🎯 Release v0.1.0 - First Simple Test
+## 🚀 Release v0.2.0 - Configuration Management
 {{RELEASE_METADATA}}
 
-## 🚀 Summary
-This is the **first functional release** of our Java Selenium Hybrid Framework. It introduces a foundational UI automation test using **Selenium + TestNG**, setting the stage for further framework development and enhancements.
+### 📦 What's New
+- **Configuration Management System**: Externalized test configuration via properties file
+- **Browser Configuration**: Dynamic browser and headless mode settings
+- **Environment Flexibility**: Easy switching between different test environments
 
-## ✅ What's Included
-- 🧪 **Basic Functional Test**
-  Adds the `TextBoxTest.java` to validate form submission on [`https://demoqa.com/text-box`](https://demoqa.com/text-box):
-  - Inputs:
-    - Full Name
-    - Email
-    - Current Address
-    - Permanent Address
-  - Verifies if submitted data is displayed correctly.
+### 🛠️ Technical Features
+- `Configuration.java` - Centralized configuration reader
+- `config.properties` - Externalized settings file
+- Updated test framework to use dynamic configuration
 
-- 🧰 **Tech Stack**
-  - Java
-  - Maven
-  - Selenium WebDriver
-  - TestNG
+### ✅ Quality Assurance
+- All existing tests pass with new configuration system
+- Headless mode verified in CI environment
+- Cross-browser compatibility foundation established
 
-## 🔍 Test Execution Summary
-| Test Method                  | Status  |
-|-----------------------------|---------|
-| `testTextBoxFormSubmission()` | ✅ Passed |
+### 🔄 Migration Notes
+- No breaking changes to existing test structure
+- Configuration file path: `src/test/resources/config.properties`
+- Backward compatible with current test implementations
 
-- Ran successfully on Chrome with UI visible.
-- Verified via `mvn clean test`.
+### 📈 Next Steps
+- Extend configuration for database connections
+- Add environment-specific property files
+- Implement logging configuration
 
-## 📁 Project Structure Overview
-```
-📦 java-selenium-hybrid-framework/
-├── src/test/java/tests/TextBoxTest.java # 🆕 Basic functional test
-├── pom.xml # ✔ Maven config
-├── .gitignore # ✔ Standard ignores
-├── LICENSE # ✔ MIT License
-└── README.md # ✔ Setup Guide
-```
-
-## 📌 Linked Items
-- 🔗 Issue: `#6` – First Test Implementation
-- 📌 Milestone: `v0.1.0` – First Working Selenium Test
-
-## 📈 Roadmap Ahead
-
-| Version  | Feature                             | Status       |
-|----------|-----------------------------------|--------------|
-| `v0.2.0` | ConfigManager + `.properties` files | 🗂️ Planned  |
-| `v0.3.0` | GitHub Actions CI integration       | 🛠️ Planned  |
-
-
-
-## 📋 Release Checklist
-### ✅ Pre-Release Validation
-- [ ] All CI/CD pipelines passing on `dev` branch
-- [ ] `mvn clean compile` successful
-- [ ] `mvn clean test` executed successfully
-- [ ] `pom.xml` validation passed
-- [ ] Dependency resolution successful
-- [ ] Code quality gates met
-- [ ] `README.md` verified and up to date
-- [ ] No breaking changes introduced
-
-### ✅ Code Quality
-- [ ] No critical bugs or issues reported
-- [ ] All acceptance criteria from feature PR met
-- [ ] Code follows established patterns and structure
-- [ ] Configuration files properly organized
-- [ ] Git history clean and meaningful
-
-### ✅ Deployment Readiness
-- [ ] GitHub Actions workflows verified functional
-- [ ] Branch protection rules in place
-- [ ] Maven build reproducible from `main`
-- [ ] Environment configurations validated
-- [ ] Rollback plan documented
-
-## 📊 Release Contents
-### 🏗 Foundation Components
-- **Maven Project Structure** — Standardized layout with clear source separation
-- **Core Dependencies** — `Selenium 4.34.0`, `TestNG 7.11.0`
-- **Build Plugins** — Compiler, Surefire, Clean, Jar
-- **CI/CD Integration** — GitHub Actions workflows
-- **Documentation** — Complete and clean `README.md`
-
-### 🔧 Technical Specifications
-- **Version:** `v0.1.0`
-- **Java:** 21
-- **Build Tool:** Maven 3.6+
-- **CI/CD:** GitHub Actions
-- **Testing:** TestNG 7.11.0
-- **Automation Framework:** Selenium 4.34.0
-
-## 📁 Artifacts Delivered
-- [x] `pom.xml` — Project configuration and dependencies
-- [x] `.github/workflows/` — GitHub Actions CI/CD pipelines
-- [x] `src/` — Standard Java project structure
-- [x] `.gitignore` — Proper exclusions and cleanup
-- [x] `README.md` — Detailed project documentation
-
-## 🔄 Change History
-### ✅ Features Included
-| Component| Status | Description|
-|-------------------|--------|----------------------------------|
-| Maven Foundation| ✅ | Initialized standard project structure |
-| CI/CD Pipeline| ✅ | GitHub Actions integrated |
-| Core Dependencies | ✅ | Selenium + TestNG setup |
-| Documentation | ✅ | Setup and usage guide in README |
-| Quality Gates | ✅ | Branch protection and checks|
-
-### 🔗 Related Pull Requests
-- **#1** — Initial Maven + CI/CD Setup
-→ `feature/maven-with-ci-setup` → `dev`
-
-## 🚨 Release Notes
-### ✨ New Features
-- Initial Maven project structure for hybrid automation framework
-- CI/CD pipeline integrated with GitHub Actions
-- Core testing dependencies configured (Selenium, TestNG)
-- Standardized build and test processes
-- Project documentation (README) with setup guidance
-
-### 🛠 Technical Improvements
-- Java 21 compatibility ensured
-- Optimized Maven build flow
-- Foundation for automated testing
-- Code quality gates and review processes in place
-- Branch protection strategies enabled
-
-## 📝 Upgrade Instructions
-```bash
-# Clone the repository
-git clone https://github.com/Anuj-Patiyal/java-selenium-hybrid-framework.git
-
-# Navigate into the project
-cd java-selenium-hybrid-framework
-
-# Run build and tests
-mvn clean compile
-mvn clean test
-```
-
-
-## 👤 Release Manager
-**ANUJ KUMAR** | 🏅 Framework Architect & CI/CD Specialist
-
-📧 Email: [anujpatiyal@live.in](mailto:anujpatiyal@live.in)
-
-🔗 LinkedIn: [https://www.linkedin.com/in/anuj-kumar-qa/](https://www.linkedin.com/in/anuj-kumar-qa/) 
 
