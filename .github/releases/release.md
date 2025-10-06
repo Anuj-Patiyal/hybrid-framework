@@ -8,14 +8,12 @@ labels: test, first-test
 ---
 
 # 🎯 Release v0.1.0 - First Simple Test
-
 {{RELEASE_METADATA}}
 
 ## 🚀 Summary
 This is the **first functional release** of our Java Selenium Hybrid Framework. It introduces a foundational UI automation test using **Selenium + TestNG**, setting the stage for further framework development and enhancements.
 
 ## ✅ What's Included
-
 - 🧪 **Basic Functional Test**
   Adds the `TextBoxTest.java` to validate form submission on [`https://demoqa.com/text-box`](https://demoqa.com/text-box):
   - Inputs:
@@ -32,7 +30,6 @@ This is the **first functional release** of our Java Selenium Hybrid Framework. 
   - TestNG
 
 ## 🔍 Test Execution Summary
-
 | Test Method                  | Status  |
 |-----------------------------|---------|
 | `testTextBoxFormSubmission()` | ✅ Passed |
@@ -51,7 +48,7 @@ This is the **first functional release** of our Java Selenium Hybrid Framework. 
 ```
 
 ## 📌 Linked Items
-- 🔗 Issue: `#2` – First Test Implementation
+- 🔗 Issue: `#6` – First Test Implementation
 - 📌 Milestone: `v0.1.0` – First Working Selenium Test
 
 ## 📈 Roadmap Ahead
@@ -61,108 +58,10 @@ This is the **first functional release** of our Java Selenium Hybrid Framework. 
 | `v0.2.0` | ConfigManager + `.properties` files | 🗂️ Planned  |
 | `v0.3.0` | GitHub Actions CI integration       | 🛠️ Planned  |
 
-
-## 👤 Author
-
-**Anuj Kumar** – [LinkedIn](https://www.linkedin.com/in/anuj-kumar-qa/)  
-🏅 *QA Consultant & Test Automation Engineer*
----
-<<<<<<< HEAD
-title: "🎯 Release v0.1.0 - First Simple Test"
-assignees: Anuj-Patiyal
-reviewers: opencode-qa
-milestone: v0.1.0
-linked_issue: 2
-labels: test, first-test
----
-
-# 🎯 Release v0.1.0 - First Simple Test
-
-{{RELEASE_METADATA}}
-
-## 🚀 Summary
-This is the **first functional release** of our Java Selenium Hybrid Framework. It introduces a foundational UI automation test using **Selenium + TestNG**, setting the stage for further framework development and enhancements.
-
-## ✅ What's Included
-
-- 🧪 **Basic Functional Test**
-  Adds the `TextBoxTest.java` to validate form submission on [`https://demoqa.com/text-box`](https://demoqa.com/text-box):
-  - Inputs:
-    - Full Name
-    - Email
-    - Current Address
-    - Permanent Address
-  - Verifies if submitted data is displayed correctly.
-
-- 🧰 **Tech Stack**
-  - Java
-  - Maven
-  - Selenium WebDriver
-  - TestNG
-
-## 🔍 Test Execution Summary
-
-| Test Method                  | Status  |
-|-----------------------------|---------|
-| `testTextBoxFormSubmission()` | ✅ Passed |
-
-- Ran successfully on Chrome with UI visible.
-- Verified via `mvn clean test`.
-
-## 📁 Project Structure Overview
-```
-📦 java-selenium-hybrid-framework/
-├── src/test/java/tests/TextBoxTest.java # 🆕 Basic functional test
-├── pom.xml # ✔ Maven config
-├── .gitignore # ✔ Standard ignores
-├── LICENSE # ✔ MIT License
-└── README.md # ✔ Setup Guide
-```
-
-## 📌 Linked Items
-- 🔗 Issue: `#2` – First Test Implementation
-- 📌 Milestone: `v0.1.0` – First Working Selenium Test
-
-## 📈 Roadmap Ahead
-
-| Version  | Feature                             | Status       |
-|----------|-----------------------------------|--------------|
-| `v0.2.0` | ConfigManager + `.properties` files | 🗂️ Planned  |
-| `v0.3.0` | GitHub Actions CI integration       | 🛠️ Planned  |
-
-
-## 👤 Author
-
-**Anuj Kumar** – [LinkedIn](https://www.linkedin.com/in/anuj-kumar-qa/)  
-🏅 *QA Consultant & Test Automation Engineer*
-=======
-title: "🎯 RELEASE: Initial Maven + CI/CD Foundation"
-assignees: Anuj-Patiyal
-reviewers: opencode-qa
-milestone: v0.0.0
-linked_issue: 1
-labels: automation, setup, dependencies, maven, initial-release, release
----
-
-# 🚀 Initial Maven + CI/CD Foundation
-
-**Release Version:** `v0.0.0`
-
-**Source Branch:** `dev`
-
-**Target Branch:** `main`
-
-**Release Type:** Initial Foundation Release
-
-**Environment:** Production Ready
-
-{{RELEASE_METADATA}}
 
 
 ## 📋 Release Checklist
-
 ### ✅ Pre-Release Validation
-
 - [ ] All CI/CD pipelines passing on `dev` branch
 - [ ] `mvn clean compile` successful
 - [ ] `mvn clean test` executed successfully
@@ -173,7 +72,6 @@ labels: automation, setup, dependencies, maven, initial-release, release
 - [ ] No breaking changes introduced
 
 ### ✅ Code Quality
-
 - [ ] No critical bugs or issues reported
 - [ ] All acceptance criteria from feature PR met
 - [ ] Code follows established patterns and structure
@@ -181,7 +79,6 @@ labels: automation, setup, dependencies, maven, initial-release, release
 - [ ] Git history clean and meaningful
 
 ### ✅ Deployment Readiness
-
 - [ ] GitHub Actions workflows verified functional
 - [ ] Branch protection rules in place
 - [ ] Maven build reproducible from `main`
@@ -197,7 +94,7 @@ labels: automation, setup, dependencies, maven, initial-release, release
 - **Documentation** — Complete and clean `README.md`
 
 ### 🔧 Technical Specifications
-- **Version:** `v0.0.0`
+- **Version:** `v0.1.0`
 - **Java:** 21
 - **Build Tool:** Maven 3.6+
 - **CI/CD:** GitHub Actions
@@ -253,10 +150,11 @@ mvn clean compile
 mvn clean test
 ```
 
+
 ## 👤 Release Manager
 **ANUJ KUMAR** | 🏅 Framework Architect & CI/CD Specialist
 
 📧 Email: [anujpatiyal@live.in](mailto:anujpatiyal@live.in)
 
 🔗 LinkedIn: [https://www.linkedin.com/in/anuj-kumar-qa/](https://www.linkedin.com/in/anuj-kumar-qa/) 
->>>>>>> main
+
