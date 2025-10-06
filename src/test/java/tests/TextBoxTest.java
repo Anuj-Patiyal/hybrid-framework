@@ -1,5 +1,6 @@
 package tests;
 
+import config.Configuration;
 import java.time.Duration;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,18 +20,19 @@ public class TextBoxTest {
     {
         ChromeOptions options = new ChromeOptions();
 
-        // Prevent usage of user data dir
-        options.addArguments("--no-sandbox"); // Good practice in CI
+        // Use configuration
+        if (Configuration.isHeadless()) {
+            options.addArguments("--headless=new");
+        }
+
+        options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--headless=new"); // Required in CI unless using Xvfb
-        options.addArguments("--disable-gpu"); // Optional, useful for stability
-        options.addArguments("--remote-allow-origins=*"); // Avoid CORS issues
-        options.addArguments("--disable-popup-blocking");
+        options.addArguments("--remote-allow-origins=*");
 
         // START SESSION
         driver = new ChromeDriver(options);
         driver.manage().window().setSize(new Dimension(1920, 1080));
-        driver.get("https://demoqa.com/text-box");
+        driver.get(Configuration.getBaseUrl() + "/text-box");
 
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
@@ -50,18 +52,12 @@ public class TextBoxTest {
         waitAndSendKeys(By.id("currentAddress"), currentAddress);
         waitAndSendKeys(By.id("permanentAddress"), permanentAddress);
 
-        // Click the submit button robustly
+        // Click the submit button
         By submitButtonLocator = By.id("submit");
         WebElement submitButton = wait.until(ExpectedConditions.presenceOfElementLocated(submitButtonLocator));
 
-        try {
-            // Scroll into view
-            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
-            wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
-        } catch (ElementClickInterceptedException e) {
-            // Fallback to JS click in case of overlay
-            ((JavascriptExecutor)driver).executeScript("arguments[0].click();", submitButton);
-        }
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
+        wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
 
         // Validate outputs
         Assert.assertEquals(waitAndGetText(By.id("name")), "Name:" + fullName);
