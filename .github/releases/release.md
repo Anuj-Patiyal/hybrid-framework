@@ -1,77 +1,81 @@
 ---
-title: "🎯 Centralized Logging"
+title: "🎯 Robust Exception Handling"
 assignees: Anuj-Patiyal
 reviewers: opencode-qa
-milestone: v0.3.0
-linked_issue: 16
-labels: release, logging, enhancement, stable, framework-core
+milestone: v0.4.0
+linked_issue: 21
+labels: release, exception-handling, enhancement, stable, framework-core
 ---
 
-# 🚀 Release `v0.3.0` – Centralized Logging
+# 🚀 Release `v0.4.0` – Robust Exception Handling
 
-This release delivers the finalized **centralized logging system** for the Java Selenium Hybrid Automation Framework. The logging integration improves observability, speeds up debugging, and ensures consistent traceability across test runs.
+This release delivers a **comprehensive exception handling framework** that provides structured error management, meaningful failure messages, and graceful error recovery across the automation framework.
 
-## 📝 What’s Included
+## 📝 What's Included
 {{RELEASE_METADATA}}
-### ✅ Logging Infrastructure
-- Integrated **SLF4J + Logback** for flexible, performant logging
-- Externalized configuration via `logback.xml`
-- Console and rolling file appenders with timestamped logs
+### ✅ Exception Hierarchy
+- **`FrameworkException`** - Base exception for all framework-level errors
+- **`ElementNotFoundException`** - Specific exception for element location failures
+- **`ConfigurationException`** - Dedicated exception for config loading issues
 
 ### ✅ Coverage Areas
-- Driver lifecycle (start/stop, browser config)
-- Page-level interactions (clicks, inputs, waits)
-- Test setup/teardown via TestNG
-- Retry analyzer and exception stack traces
+- Configuration loading and validation errors
+- WebElement interactions (clicks, inputs, waits)
+- Test setup and teardown operations
+- Assertion failures with proper context
 
-### ✅ Logging Features
-- Unified log format with timestamps, thread ID, and context
-- Log level control: `TRACE` to `ERROR`
-- Per-run log files under `/logs` with rotation
+### ✅ Exception Handling Features
+- Structured exception chaining for root cause analysis
+- Integration with Log4j2 for consistent error logging
+- Graceful resource cleanup in failure scenarios
+- Descriptive error messages with actionable insights
 
-### ✅ CI/CD Integration
-- Logs included in GitHub Actions artifacts
-- Exception traces help in CI failure diagnostics
+### ✅ Framework Integration
+- Seamless integration with existing logging infrastructure
+- Proper error propagation without breaking TestNG reporting
+- Maintains CI/CD pipeline stability and artifact generation
 
-## 📦 Artifacts Generated
-- `logs/test-run-[timestamp].log` (CI + Local)
-- Logging documentation in `/docs/logging.md`
+## 📦 Artifacts Enhanced
+- Improved error traces in `logs/test-run-[timestamp].log`
+- Better failure diagnostics in CI reports
+- Structured exception documentation in `/docs/exceptions.md`
 
 ## 📅 Milestone
-- **Version:** `v0.3.0`
-- **Target Date:** 2025-09-02
-- **Branch:** `feature/logging` → `dev`
+- **Version:** `v0.4.0`
+- **Target Date:** 2025-10-22
+- **Branch:** `dev`  → `main`
 
-Closes to: #7
+Closes to: #21
 
 ## 📋 Review Checklist
-- [x] All log statements reviewed for relevance and sensitivity
-- [x] Performance impact validated (parallel runs, CI)
-- [x] Logging config external and documented
-- [x] CI artifacts include log files
-- [x] Logs tested in multi-threaded scenarios
+- [x] Custom exception hierarchy reviewed for completeness
+- [x] All framework operations wrapped with proper exception handling
+- [x] Error messages provide actionable debugging information
+- [x] Exception chaining preserves root cause context
+- [x] CI pipeline maintains stability with new exception framework
 
 ## 🧪 Validation Summary
 
 | Check | Result |
 |---------------------------|--------|
-| Local test logging | ✅ |
-| Logback config application | ✅ |
-| CI logs captured | ✅ |
-| Multi-thread log output | ✅ |
-| Error/Exception tracing | ✅ |
+| Configuration error handling | ✅ |
+| Element not found scenarios | ✅ |
+| Test failure exception propagation | ✅ |
+| Resource cleanup in teardown | ✅ |
+| CI pipeline exception handling | ✅ |
+| Logging integration with exceptions | ✅ |
 
 ## 🔄 Changelog Summary
 
-- ✨ Add Log4J2 centralized logging (`Log4j2.xml`)
-- 🧪 Instrument driver, page actions, and test hooks
-- 📁 Save logs per run under `/logs/`
-- ⚙️ Add logging config to CI/CD pipeline
-- 📚 Document logging usage and structure
+- ✨ Add custom exception hierarchy (`FrameworkException`, `ElementNotFoundException`)
+- 🛡️ Implement comprehensive try-catch blocks across framework
+- 🔗 Add exception chaining for root cause preservation
+- 📝 Enhance error messages with contextual information
+- 🧹 Ensure proper resource cleanup in failure scenarios
+- 🔍 Integrate exceptions with existing logging infrastructure
 
 ## 🚀 Next Steps
 - Merge into `dev`
-- Monitor CI failures for log clarity
-- Enable cloud log export support (v0.4.0)
-- Extend logging to dynamic wait mechanisms
-
+- Monitor exception patterns in CI failures
+- Implement automatic screenshot capture on exceptions
+- Add retry mechanisms for transient failures
