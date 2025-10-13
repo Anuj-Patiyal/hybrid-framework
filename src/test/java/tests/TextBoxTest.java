@@ -1,6 +1,8 @@
 package tests;
 
 import config.Configuration;
+import exceptions.ElementNotFoundException;
+import exceptions.FrameworkException;
 import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -21,90 +23,131 @@ public class TextBoxTest {
     @BeforeClass
     public void setUp()
     {
-        logger.info("Setting up test environment");
+        try {
+            logger.info("Setting up test environment");
 
-        ChromeOptions options = new ChromeOptions();
+            ChromeOptions options = new ChromeOptions();
 
-        // Use configuration
-        if (Configuration.isHeadless()) {
-            options.addArguments("--headless=new");
-            logger.debug("Chrome running in headless mode");
+            if (Configuration.isHeadless()) {
+                options.addArguments("--headless=new");
+                logger.debug("Chrome running in headless mode");
+            }
+
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--remote-allow-origins=*");
+
+            driver = new ChromeDriver(options);
+            driver.manage().window().setSize(new Dimension(1920, 1080));
+
+            String url = Configuration.getBaseUrl() + "/text-box";
+            logger.info("Navigating to URL: {}", url);
+            driver.get(url);
+
+            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            logger.info("Test setup completed successfully");
+
+        } catch (Exception e) {
+            logger.error("Test setup failed: {}", e.getMessage());
+            throw new FrameworkException("Test setup failed", e);
         }
-
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--remote-allow-origins=*");
-
-        // START SESSION
-        driver = new ChromeDriver(options);
-        driver.manage().window().setSize(new Dimension(1920, 1080));
-
-        String url = Configuration.getBaseUrl() + "/text-box";
-        logger.info("Navigating to URL: {}", url);
-        driver.get(url);
-
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        logger.info("Test setup completed successfully");
     }
 
     @Test
     public void testTextBoxFormSubmission()
     {
-        logger.info("Starting text box form submission test");
+        try {
+            logger.info("Starting text box form submission test");
 
-        // Input data
-        String fullName = "John Doe";
-        String email = "john.doe@example.com";
-        String currentAddress = "123 Main St";
-        String permanentAddress = "456 Secondary St";
+            String fullName = "John Doe";
+            String email = "john.doe@example.com";
+            String currentAddress = "123 Main St";
+            String permanentAddress = "456 Secondary St";
 
-        logger.debug("Filling form with data - Name: {}, Email: {}", fullName, email);
+            logger.debug("Filling form with data - Name: {}, Email: {}", fullName, email);
 
-        // Fill form fields with wait
-        waitAndSendKeys(By.id("userName"), fullName);
-        waitAndSendKeys(By.id("userEmail"), email);
-        waitAndSendKeys(By.id("currentAddress"), currentAddress);
-        waitAndSendKeys(By.id("permanentAddress"), permanentAddress);
+            waitAndSendKeys(By.id("userName"), fullName);
+            waitAndSendKeys(By.id("userEmail"), email);
+            waitAndSendKeys(By.id("currentAddress"), currentAddress);
+            waitAndSendKeys(By.id("permanentAddress"), permanentAddress);
 
-        // Click the submit button
-        logger.debug("Clicking submit button");
-        By submitButtonLocator = By.id("submit");
-        WebElement submitButton = wait.until(ExpectedConditions.presenceOfElementLocated(submitButtonLocator));
+            logger.debug("Clicking submit button");
+            clickElement(By.id("submit"));
 
-        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", submitButton);
-        wait.until(ExpectedConditions.elementToBeClickable(submitButton)).click();
+            validateResults(fullName, email, currentAddress, permanentAddress);
 
-        // Validate outputs
-        logger.debug("Validating form submission results");
-        Assert.assertEquals(waitAndGetText(By.id("name")), "Name:" + fullName);
-        Assert.assertEquals(waitAndGetText(By.id("email")), "Email:" + email);
-        Assert.assertEquals(waitAndGetText(By.xpath("//p[@id='currentAddress']")), "Current Address :" + currentAddress);
-        Assert.assertEquals(waitAndGetText(By.xpath("//p[@id='permanentAddress']")),
-            "Permananet Address :" + permanentAddress);
+            logger.info("Text box form submission test completed successfully");
 
-        logger.info("Text box form submission test completed successfully");
+        } catch (Exception e) {
+            logger.error("Test execution failed: {}", e.getMessage());
+            throw new FrameworkException("Text box test failed", e);
+        }
     }
 
     private void waitAndSendKeys(By locator, String text)
     {
-        logger.trace("Waiting for element and sending keys: {}", locator);
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-        element.clear();
-        element.sendKeys(text);
+        try {
+            logger.trace("Waiting for element and sending keys: {}", locator);
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            element.clear();
+            element.sendKeys(text);
+        } catch (TimeoutException e) {
+            throw new ElementNotFoundException("Element not found for sending keys: " + locator, e);
+        } catch (Exception e) {
+            throw new FrameworkException("Failed to send keys to element: " + locator, e);
+        }
+    }
+
+    private void clickElement(By locator)
+    {
+        try {
+            logger.trace("Clicking element: {}", locator);
+            WebElement element = wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", element);
+            wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        } catch (TimeoutException e) {
+            throw new ElementNotFoundException("Clickable element not found: " + locator, e);
+        } catch (Exception e) {
+            throw new FrameworkException("Failed to click element: " + locator, e);
+        }
     }
 
     private String waitAndGetText(By locator)
     {
-        logger.trace("Waiting for element and getting text: {}", locator);
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+        try {
+            logger.trace("Waiting for element and getting text: {}", locator);
+            return wait.until(ExpectedConditions.visibilityOfElementLocated(locator)).getText();
+        } catch (TimeoutException e) {
+            throw new ElementNotFoundException("Element not found for getting text: " + locator, e);
+        } catch (Exception e) {
+            throw new FrameworkException("Failed to get text from element: " + locator, e);
+        }
+    }
+
+    private void validateResults(String fullName, String email, String currentAddress, String permanentAddress)
+    {
+        try {
+            logger.debug("Validating form submission results");
+            Assert.assertEquals(waitAndGetText(By.id("name")), "Name:" + fullName);
+            Assert.assertEquals(waitAndGetText(By.id("email")), "Email:" + email);
+            Assert.assertEquals(waitAndGetText(By.xpath("//p[@id='currentAddress']")), "Current Address :" + currentAddress);
+            Assert.assertEquals(waitAndGetText(By.xpath("//p[@id='permanentAddress']")), "Permananet Address :" + permanentAddress);
+        } catch (AssertionError e) {
+            logger.error("Validation failed: {}", e.getMessage());
+            throw new FrameworkException("Test validation failed", e);
+        }
     }
 
     @AfterClass
     public void tearDown()
     {
-        if (driver != null) {
-            driver.quit();
-            logger.info("WebDriver closed successfully");
+        try {
+            if (driver != null) {
+                driver.quit();
+                logger.info("WebDriver closed successfully");
+            }
+        } catch (Exception e) {
+            logger.error("Error during teardown: {}", e.getMessage());
         }
     }
 }
