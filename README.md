@@ -1,53 +1,52 @@
 # 🚀 Hybrid Framework
-> **Enterprise-grade test automation framework with robust exception handling, structured logging, and comprehensive CI/CD**
----
-## 📦 Version & Activity
-[![](https://img.shields.io/github/v/release/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/releases)
-[![](https://img.shields.io/github/release-date/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/releases)
-[![](https://img.shields.io/github/last-commit/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/commits)
-[![](https://img.shields.io/github/commit-activity/m/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/commits)
+**Advanced Driver Management - (v0.5.0)**
+> Enterprise-grade test automation framework with advanced driver management, multi-browser support, and automatic driver handling
 
 ---
 
-## ✅ CI/CD & Quality
-[![](https://img.shields.io/github/actions/workflow/status/Anuj-Patiyal/hybrid-framework/main-ci.yml?label=Main%20CI)](https://github.com/Anuj-Patiyal/hybrid-framework/actions/workflows/main-ci.yml)
-[![](https://img.shields.io/github/actions/workflow/status/Anuj-Patiyal/hybrid-framework/pom-validation.yml?label=Pom%20Validation)](https://github.com/Anuj-Patiyal/hybrid-framework/actions/workflows/pom-validation.yml)
-[![](https://img.shields.io/github/issues/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/issues)
-[![](https://img.shields.io/github/issues-closed/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/issues?q=is%3Aissue+is%3Aclosed)
+## 📛 Category Badges
+### Version & Activity
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Anuj-Patiyal/hybrid-framework)
+![GitHub release date](https://img.shields.io/github/release-date/Anuj-Patiyal/hybrid-framework)
+![GitHub last commit](https://img.shields.io/github/last-commit/Anuj-Patiyal/hybrid-framework)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Anuj-Patiyal/hybrid-framework)
 
----
+### CI/CD & Quality
+![CI Status](https://img.shields.io/github/actions/workflow/status/Anuj-Patiyal/hybrid-framework/main-ci.yml)
+![POM Validation](https://img.shields.io/github/actions/workflow/status/Anuj-Patiyal/hybrid-framework/pom-validation.yml)
+![Open Issues](https://img.shields.io/github/issues/Anuj-Patiyal/hybrid-framework)
+![Closed Issues](https://img.shields.io/github/issues-closed/Anuj-Patiyal/hybrid-framework)
 
-## 🛠 Tech Stack
+### Tech Stack
 ![Java](https://img.shields.io/badge/Java-21-blue)
 ![Maven](https://img.shields.io/badge/Maven-3.6%252B-orange)
 ![Selenium](https://img.shields.io/badge/Selenium-4.34.0-green)
 ![TestNG](https://img.shields.io/badge/TestNG-7.11.0-red)
 ![Log4j2](https://img.shields.io/badge/Log4j2-2.20.0-blueviolet)
-![Exception Handling](https://img.shields.io/badge/Exception--Handling-Implemented-success)
+![WebDriverManager](https://img.shields.io/badge/WebDriverManager-5.6.4-brightgreen)
+![Multi-Browser](https://img.shields.io/badge/Multi--Browser-4%2520Browsers-success)
 
----
-
-## 📊 Project Health
-[![](https://img.shields.io/github/repo-size/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework)
-[![](https://img.shields.io/github/languages/count/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework)
-[![](https://img.shields.io/github/license/Anuj-Patiyal/hybrid-framework)](https://github.com/Anuj-Patiyal/hybrid-framework/blob/main/LICENSE)
+### Project Health
+![Repo Size](https://img.shields.io/github/repo-size/Anuj-Patiyal/hybrid-framework)
+![Languages Count](https://img.shields.io/github/languages/count/Anuj-Patiyal/hybrid-framework)
+![License](https://img.shields.io/github/license/Anuj-Patiyal/hybrid-framework)
 ![Maintenance](https://img.shields.io/maintenance/yes/2025)
 
 ---
 
 ## 📚 Table of Contents
-1. 🚀 [Project Overview](#-project-overview)
-2. 🏗️ [Architecture](#-architecture)
-3. ✨ [Features](#-features)
-4. 📁 [Project Structure](#-project-structure)
-5. ⚡ [Quick Start](#-quick-start)
-6. 🔧 [Configuration](#-configuration)
-7. 🌿 [Branch Strategy](#-branch-strategy)
-8. 🔄 [CI/CD Pipeline](#-cicd-pipeline)
-9. 📊 [Milestones](#-milestones)
-10. 🤝 [Contributing](#-contributing)
-11. 👨‍💻 [Author](#-author)
-12. 📜 [License](#-license)
+- [🚀 Project Overview](#-project-overview)
+- [🏗️ Architecture](#-architecture)
+- [✨ Features](#-features)
+- [📁 Project Structure](#-project-structure)
+- [⚡ Quick Start](#-quick-start)
+- [🔧 Configuration](#-configuration)
+- [🌿 Branch Strategy](#-branch-strategy)
+- [🔄 CI/CD Pipeline](#-cicd-pipeline)
+- [📊 Milestones](#-milestones)
+- [🤝 Contributing](#-contributing)
+- [👨‍💻 Author](#-author)
+- [📜 License](#-license)
 
 ---
 
@@ -55,19 +54,21 @@
 ### 🎯 What is This Framework?
 A modern, scalable test automation framework built with Java, Selenium WebDriver, and TestNG, designed for enterprise-level testing with comprehensive error handling and reporting.
 
-### 🏆 Current Release: v0.4.0
-Robust Exception Handling Framework - Implementing structured error management across all framework components.
+### 🏆 Current Release: v0.5.0
+Advanced Driver Management - Implementing WebDriverManager integration, multi-browser support, and thread-safe driver operations.
 ```mermaid
 timeline
     title Framework Evolution
     section v0.1.0
         Basic Test Setup : Selenium + TestNG
-    section v0.2.0  
+    section v0.2.0
         Configuration Mgmt : External properties
     section v0.3.0
         Logging System : Log4j2 Integration
     section v0.4.0
         Exception Handling: Custom exceptions & error recovery
+    section v0.5.0
+        Driver Management: WebDriverManager & multi-browser
 ```
 ---
 
@@ -75,67 +76,92 @@ timeline
 ### 🔬 High-Level Architecture
 ```mermaid
 graph TB
-    subgraph "Test Automation Framework"
-        A[Test Scripts] --> B[TestNG Framework]
-        B --> C[Exception Handler]
-        C --> D[Configuration Manager]
-        D --> E[Logging System]
-        E --> F[WebDriver Factory]
-        F --> G[Browser Drivers]
-        G --> H[Web Applications]
+    subgraph "Test Automation Framework v0.5.0"
+        A[Test Scripts] --> B[BaseTest Class]
+        B --> C[Driver Factory]
+        C --> D[WebDriverManager]
+        D --> E[Browser Drivers]
+        E --> F[Web Applications]
         
-        I[Custom Exceptions] --> C
-        J[Properties Files] --> D
-        K[Log4j2 Config] --> E
-        L[CI/CD Pipeline] --> M[GitHub Actions]
+        G[Configuration] --> C
+        H[Exception Handler] --> I[Error Recovery]
+        J[Logging System] --> K[Structured Logs]
+        L[Thread Manager] --> M[Parallel Execution]
+        
+        B --> H
+        B --> J
+        B --> L
+        C --> N[Multi-Browser Support]
     end
     
-    subgraph "Supporting Systems"
-        N[Maven Build] --> O[Dependency Mgmt]
-        P[Git] --> Q[Version Control]
-        R[Reports] --> S[Test Analytics]
+    subgraph "Browser Support Matrix"
+        O[Chrome] --> P[Full Support]
+        Q[Firefox] --> R[Full Support]
+        S[Edge] --> T[Full Support]
+        U[Safari] --> V[Limited Support]
     end
     
-    style C fill:#ffebee
-    style E fill:#e8f5e8
-    style I fill:#fff3e0
+    style C fill:#e3f2fd
+    style D fill:#bbdefb
+    style N fill:#e8f5e8
 ```
-### 🔄 Data Flow Architecture
+
+### 🔄 Driver Management Flow
 ```mermaid
 flowchart TD
-    A[Test Execution Start] --> B[Load Configuration]
-    B --> C[Initialize Logging]
-    C --> D[Setup WebDriver]
-    D --> E[Execute Test Steps]
-    E --> F{Check Success}
+    A[Test Execution Start] --> B[BaseTest Setup]
+    B --> C[DriverFactory.createDriver]
+    C --> D{Select Browser}
     
-    F -->|Success| G[Log Results]
-    F -->|Failure| H[Handle Exception]
+    D -->|Chrome| E[WebDriverManager Chrome]
+    D -->|Firefox| F[WebDriverManager Firefox]
+    D -->|Edge| G[WebDriverManager Edge]
+    D -->|Safari| H[WebDriverManager Safari]
     
-    H --> I[Log Error Details]
-    I --> J[Capture Context]
-    J --> K[Cleanup Resources]
-    K --> L[Generate Report]
+    E --> I[Apply Browser Options]
+    F --> I
+    G --> I
+    H --> I
     
-    G --> L
-    L --> M[CI/CD Integration]
+    I --> J[ThreadLocal Storage]
+    J --> K[Test Execution]
+    K --> L[DriverManager.quitDriver]
+    L --> M[ThreadLocal Cleanup]
     
-    style H fill:#ffebee
-    style I fill:#fff3e0
+    style C fill:#e3f2fd
+    style J fill:#fff3e0
 ```
 ---
 
 ## ✨ Features
 ## 🎯 Core Framework Features
+| Feature                | Version | Status      | Description                              |
+|------------------------|---------|-------------|------------------------------------------|
+| Driver Management      | v0.5.0  | ✅ Completed | WebDriverManager with automatic handling |
+| Multi-Browser Support  | v0.5.0  | ✅ Completed | Chrome, Firefox, Edge, Safari support    |
+| Thread-Safe Operations | v0.5.0  | ✅ Completed | ThreadLocal-based driver management      |
+| Abstract Base Test     | v0.5.0  | ✅ Completed | Centralized test setup/teardown          |
+| Exception Handling     | v0.4.0  | ✅ Completed | Graceful recovery with custom exceptions |
+| Structured Logging     | v0.3.0  | ✅ Completed | Log4j2 for console & file logging        |
+| Config Management      | v0.2.0  | ✅ Completed | Externalized `config.properties`         |
 
-| Feature                      | Version | Status      | Description                                    |
-|------------------------------|---------|-------------|------------------------------------------------|
-| **Exception Handling**       | v0.4.0  | ✅ Completed | Custom exceptions with graceful error recovery |
-| **Structured Logging**       | v0.3.0  | ✅ Completed | Log4j2 with console & file appenders           |
-| **Configuration Management** | v0.2.0  | ✅ Completed | Externalized properties file support           |
-| **TestNG Integration**       | v0.1.0  | ✅ Completed | Test execution and reporting                   |
-| **CI/CD Pipeline**           | v0.0.0  | ✅ Completed | GitHub Actions automation                      |
-
+### 🌐 Browser Support Matrix
+```mermaid
+graph LR
+    A[Chrome] --> A1[Full Support]
+    B[Firefox] --> B1[Full Support]
+    C[Edge] --> C1[Full Support]
+    D[Safari] --> D1[macOS Only]
+    
+    E[Headless Mode] --> E1[All Except Safari]
+    F[Parallel Execution] --> F1[All Browsers]
+    G[Automatic Updates] --> G1[WebDriverManager]
+    
+    style A1 fill:#c8e6c9
+    style B1 fill:#c8e6c9
+    style C1 fill:#c8e6c9
+    style D1 fill:#ffecb3
+```
 ### 🔧 Technical Specifications
 ```mermaid
 graph LR
@@ -164,55 +190,59 @@ hybrid-framework/
 │   │       └── 🎯 log4j2.xml                 # Logging configuration
 │   └── 📁 test/
 │       ├── 📁 java/
+│       │   ├── 📁 base/                      # 🆕 Base test classes
+│       │   │   └── 🎯 BaseTest.java          # Abstract base test class
 │       │   ├── 📁 config/
 │       │   │   └── 🎯 Configuration.java     # Configuration manager
-│       │   ├── 📁 exceptions/                # 🆕 Exception classes
+│       │   ├── 📁 drivers/                   # 🆕 Driver management
+│       │   │   ├── 🎯 DriverManager.java     # Thread-safe driver management
+│       │   │   └── 🎯 DriverFactory.java     # Multi-browser factory
+│       │   ├── 📁 exceptions/                # Exception classes
 │       │   │   ├── 🎯 FrameworkException.java
 │       │   │   └── 🎯 ElementNotFoundException.java
 │       │   └── 📁 tests/
-│       │       └── 🎯 TextBoxTest.java       # Test with exception handling
+│       │       └── 🎯 TextBoxTest.java       # Test class extending BaseTest
 │       └── 📁 resources/
 │           └── 🎯 config.properties          # Test configuration
 ├── 📁 logs/                                  # Generated log files
 ├── 📁 .github/
-│   ├── 📁 workflows/
-│   │   ├── 🎯 main-ci.yml                   # CI pipeline
-│   │   ├── 🎯 feature-pr.yml               # Feature validation
-│   │   ├── 🎯 release-pr.yml               # Release automation
-│   │   └── 🎯 pom-validation.yml           # POM validation
-│   ├── 📁 issues/                           # Issue templates
-│   ├── 📁 features/                         # Feature PR templates
-│   └── 📁 releases/                         # Release templates
+│   ├── 📁 workflows/                         # CI/CD pipelines
+│   ├── 📁 issues/                            # Issue templates
+│   ├── 📁 features/                          # Feature PR templates
+│   └── 📁 releases/                          # Release templates
 ├── 🎯 pom.xml                               # Maven configuration
 └── 🎯 README.md                             # Project documentation
+
 ```
-### 🔍 Key Components Deep Dive
+### 🔍 Driver Management Architecture
 ```mermaid
 graph TB
-    subgraph "Configuration Layer"
-        A[config.properties] --> B[Configuration.java]
-        B --> C[Runtime Settings]
+    subgraph "Driver Management Layer v0.5.0"
+        A[BaseTest] --> B[DriverFactory]
+        B --> C[WebDriverManager]
+        C --> D[Browser Drivers]
+
+        E[DriverManager] --> F[ThreadLocal Storage]
+        F --> G[Driver Instances]
+        G --> H[Parallel Execution]
+
+        I[Configuration] --> J[Browser Settings]
+        J --> K[Chrome Options]
+        J --> L[Firefox Options]
+        J --> M[Edge Options]
+        J --> N[Safari Options]
     end
-    
-    subgraph "Exception Layer"
-        D[FrameworkException] --> E[ElementNotFoundException]
-        D --> F[Future Exceptions]
+
+    subgraph "Supported Browsers"
+        O[Chrome] --> P[Auto-Download]
+        Q[Firefox] --> R[Auto-Download]
+        S[Edge] --> T[Auto-Download]
+        U[Safari] --> V[System Driver]
     end
-    
-    subgraph "Logging Layer"
-        G[log4j2.xml] --> H[Logger Instances]
-        H --> I[Console Appender]
-        H --> J[File Appender]
-    end
-    
-    subgraph "Test Layer"
-        K[TextBoxTest.java] --> L[Test Methods]
-        L --> M[Exception Handling]
-        L --> N[Logging Integration]
-    end
-    
-    style D fill:#ffebee
+
+    style B fill:#e3f2fd
     style E fill:#fff3e0
+    style C fill:#bbdefb
 ```
 ---
 
@@ -223,39 +253,55 @@ graph TB
 git clone https://github.com/Anuj-Patiyal/hybrid-framework.git
 cd hybrid-framework
 
-# 2. Verify setup
-mvn --version
-java --version
-
-# 3. Run your first test
+# 2. Run tests with automatic driver setup
 mvn clean test
 
-# 4. Check results
-ls -la logs/
-cat logs/DemoQA.log
+# 3. Check multi-browser support
+# Edit config.properties and change browser
 ```
+### 🎛️ Browser Configuration Examples
+**Run with Chrome:**
+```properties
+browser=chrome
+headless=true
+```
+**Run with Firefox:**
+```properties
+browser=firefox
+headless=true
+```
+**Run with Edge:**
+```properties
+browser=edge
+headless=true
+```
+
 ### ✅ Prerequisites Checklist
 - Java 21 or higher installed
 - Maven 3.6+ configured 
 - Git for version control 
 - Chrome/Firefox browsers available
 
-### 🧪 Test Execution
+### 🧪 Test Execution Commands
 ```bash
-# Run all tests
+# Run all tests with default browser
 mvn clean test
 
-# Run with specific profile
-mvn test -Pci
+# Run with specific browser
+mvn test -Dbrowser=firefox
 
-# Generate reports
+# Run in headed mode for debugging
+mvn test -Dheadless=false
+
+# Generate test reports
 mvn surefire-report:report
 ```
 ---
 
 ## 🔧 Configuration
 ### ⚙️ Configuration Files
-src/test/resources/config.properties
+
+**src/test/resources/config.properties**
 ```properties
 # =============================================
 # BROWSER CONFIGURATION
@@ -271,6 +317,13 @@ window.height=1080
 base.url=https://demoqa.com
 timeout.explicit=10
 timeout.page.load=30
+implicit.wait=10
+
+# =============================================
+# DRIVER MANAGEMENT
+# =============================================
+driver.manager.enabled=true
+driver.auto.download=true
 
 # =============================================
 # LOGGING CONFIGURATION
@@ -278,19 +331,47 @@ timeout.page.load=30
 logging.level=INFO
 logging.file=logs/DemoQA.log
 ```
-### 🎛️ Runtime Configuration
-```java
-// Access configuration in tests
-String browser = Configuration.getBrowser();
-boolean headless = Configuration.isHeadless();
-String baseUrl = Configuration.getBaseUrl();
+### 🌐 Multi-Browser Configuration Examples
+**Chrome Configuration:**
+```properties
+browser=chrome
+headless=true
+chrome.disable.extensions=true
+chrome.remote.allow.origins=*
+```
 
-// Example usage with exception handling
-try {
-    driver.get(Configuration.getBaseUrl() + "/text-box");
-} catch (FrameworkException e) {
-    logger.error("Failed to navigate to URL: {}", e.getMessage());
-    throw e;
+**Firefox Configuration:**
+```properties
+browser=firefox
+headless=true
+firefox.disable.extensions=true
+firefox.log.level=warn
+```
+
+**Edge Configuration:**
+```properties
+browser=edge
+headless=true
+edge.disable.extensions=true
+edge.remote.allow.origins=*
+```
+
+### 🔄 Runtime Usage
+```java
+// In your test classes extending BaseTest
+public class YourTest extends BaseTest {
+    
+    @Test
+    public void yourTestMethod() {
+        // Driver is automatically available
+        driver.get("https://example.com");
+        
+        // Wait strategy is pre-configured
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("element")));
+        
+        // Navigation utilities available
+        navigateTo("/specific-page");
+    }
 }
 ```
 ---
@@ -318,24 +399,31 @@ gitGraph
     checkout dev
     merge feature/exception-handling id: "Merge exception handling"
     commit id: "v0.4.0: Exception handling"
+    branch feature/driver-management
+    commit id: "WebDriverManager integration"
+    commit id: "Multi-browser support"
+    commit id: "Thread-safe implementation"
+    checkout dev
+    merge feature/driver-management id: "Merge driver management"
+    commit id: "v0.5.0: Driver management"
     checkout main
     merge dev id: "Merge to main"
-    tag v0.4.0
+    tag v0.5.0
 ```
 ### 📋 Branch Types
 
-| Branch Type | Purpose                    | Naming Convention        |
-|-------------|----------------------------|---------------------------|
-| **main**    | Production-ready releases  | `main`                    |
-| **dev**     | Integration branch         | `dev`                     |
-| **feature** | New features               | `feature/<description>`   |
-| **release** | Release preparation        | `release/<version>`       |
-| **hotfix**  | Critical fixes             | `hotfix/<description>`    |
+| Branch  | Purpose	            | Naming Convention    | Example                    |
+|---------|---------------------|----------------------|---------------------------|
+| main    | Production releases | main                 | main                      |
+| dev     | Integration branch  | dev                  | dev                       |                                     
+| feature | New features        | feature/description  | feature/driver-management | 
+| release | Release preparation | release/version      | release/v0.5.0            |
+| hotfix  | Critical fixes	    | hotfix/description   | hotfix/driver-fix        |
 
 ---
 
-## 🔄 CI/CD Pipeline
-### 🏗️ Pipeline Architecture
+## CI/CD Pipeline
+### 🏗️ Enhanced Pipeline Architecture
 ```mermaid
 flowchart TD
     A[Code Commit/Push] --> B{GitHub Event Router}
@@ -345,18 +433,24 @@ flowchart TD
     B -->|PR to feature/*| E[Feature PR Check]
     B -->|CI Success on main| F[Release Automation]
     
-    subgraph "Main CI Pipeline"
-        C --> C1[Validate POM]
-        C1 --> C2[Build & Compile]
-        C2 --> C3[Run Tests]
-        C3 --> C4[Exception Handling Check]
-        C4 --> C5[Generate Reports]
+    subgraph "Main CI Pipeline v0.5.0"
+        C --> C1[Validate POM & Dependencies]
+        C1 --> C2[Multi-Browser Setup]
+        C2 --> C3[Parallel Test Execution]
+        C3 --> C4[Driver Management Verification]
+        C4 --> C5[Generate Enhanced Reports]
     end
     
-    subgraph "Quality Gates"
-        Q1[Code Quality] --> Q2[Test Coverage]
-        Q2 --> Q3[Exception Coverage]
-        Q3 --> Q4[Logging Verification]
+    subgraph "Multi-Browser Testing"
+        M1[Chrome Tests] --> M2[Firefox Tests]
+        M2 --> M3[Edge Tests]
+        M3 --> M4[Test Results Aggregation]
+    end
+    
+    subgraph "Quality Gates v0.5.0"
+        Q1[Driver Compatibility] --> Q2[Thread Safety]
+        Q2 --> Q3[Multi-Browser Coverage]
+        Q3 --> Q4[Performance Metrics]
     end
     
     C5 --> G[Upload Artifacts]
@@ -367,55 +461,92 @@ flowchart TD
     G --> I[Quality Dashboard]
     H --> I
     
-    style C4 fill:#ffebee
-    style Q3 fill:#fff3e0
+    style C2 fill:#e3f2fd
+    style C4 fill:#fff3e0
 ```
-### 📊 Pipeline Metrics
 
-| Metric                 | Current | Target | Status |
-|------------------------|---------|--------|--------|
-| **Build Time**         | ~2m 30s | < 3m   | ✅      |
-| **Test Pass Rate**     | 100%    | > 95%  | ✅      |
-| **Exception Coverage** | 100%    | 100%   | ✅      |
-| **Validation Checks**  | 28      | 30+    | 🚧     |
+### 📊 Pipeline Metrics v0.5.0
+| Metric                 | Current    | Target     | Status |
+|------------------------|------------|------------|--------|
+| Build Time             | ~3m 15s    | < 4m       | ✅     |
+| Multi-Browser Coverage | 4 Browsers | 4 Browsers | ✅     |
+| Test Pass Rate         | 100%	      | > 95%      | ✅     |
+| Parallel Execution     | Ready      | Enabled	   | 🚧     |
+| Driver Setup Time      | ~30s       | < 45s	   | ✅     |
 
 ---
 
 ## 📊 Milestones
 ### 🎯 Release Timeline
 ```mermaid
-gantt
-    title Framework Development Timeline
-    dateFormat  YYYY-MM-DD
-    axisFormat %b %d
+flowchart TD
+    A[Code Commit/Push] --> B{GitHub Event Router}
     
-    section Completed Releases
-    v0.0.0 :done, milestone1, 2025-10-06, 0d
-    v0.1.0 :done, milestone2, 2025-10-10, 0d
-    v0.2.0 :done, milestone3, 2025-10-14, 0d
-    v0.3.0 :done, milestone4, 2025-10-18, 0d
-    v0.4.0 :done, milestone5, 2025-10-22, 0d
+    B -->|Push to main/dev| C[Main CI Pipeline]
+    B -->|Any Pull Request| D[POM Validation]
+    B -->|PR to feature/*| E[Feature PR Check]
+    B -->|CI Success on main| F[Release Automation]
     
-    section In Development
-    v0.5.0 :active, milestone6, 2025-10-26, 0d
+    subgraph "Main CI Pipeline v0.5.0"
+        C --> C1[Validate POM & Dependencies]
+        C1 --> C2[Multi-Browser Setup]
+        C2 --> C3[Parallel Test Execution]
+        C3 --> C4[Driver Management Verification]
+        C4 --> C5[Generate Enhanced Reports]
+    end
     
-    section Planned Releases
-    v0.6.0 :milestone7, 2025-10-30, 0d
-    v0.7.0 :milestone8, 2025-11-03, 0d
-    v0.8.0 :milestone9, 2025-11-07, 0d
-    v0.9.0 :milestone10, 2025-11-11, 0d
-    v1.0.0 :milestone11, 2025-11-15, 0d
+    subgraph "Multi-Browser Testing"
+        M1[Chrome Tests] --> M2[Firefox Tests]
+        M2 --> M3[Edge Tests]
+        M3 --> M4[Test Results Aggregation]
+    end
+    
+    subgraph "Quality Gates v0.5.0"
+        Q1[Driver Compatibility] --> Q2[Thread Safety]
+        Q2 --> Q3[Multi-Browser Coverage]
+        Q3 --> Q4[Performance Metrics]
+    end
+    
+    C5 --> G[Upload Artifacts]
+    D --> G
+    E --> G
+    F --> H[Create Release]
+    
+    G --> I[Quality Dashboard]
+    H --> I
+    
+    style C2 fill:#e3f2fd
+    style C4 fill:#fff3e0
 ```
 ### 🗓️ Version Roadmap
 | Version | Feature            | Status         | Release Date | Progress |
-|---------|--------------------|----------------|--------------|----------|
-| v0.4.0  | Exception Handling | ✅ Completed    | Oct 22, 2025 | 🟢 100%  |
-| v0.5.0  | Driver Management  | 🔄 In Progress | Oct 26, 2025 | 🟡 40%   |
-| v0.6.0  | Page Object Model  | ⏳ Planned      | Oct 30, 2025 | ⚪ 0%     |
-| v0.7.0  | Wait Utilities     | ⏳ Planned      | Nov 03, 2025 | ⚪ 0%     |
-| v0.8.0  | Screenshot Utility | ⏳ Planned      | Nov 07, 2025 | ⚪ 0%     |
-| v0.9.0  | TestNG Listeners   | ⏳ Planned      | Nov 11, 2025 | ⚪ 0%     |
-| v1.0.0  | Allure Reporting   | ⏳ Planned      | Nov 15, 2025 | ⚪ 0%     |
+|---------|--------------------|---------------|---------------|----------|
+| v0.5.0  | Driver Management  | ✅ Completed   | Oct 26, 2025 | 🟢 100%   |
+| v0.6.0  | Page Object Model  | 🔄 In Progress | Oct 30, 2025 | 🟡 20%    |
+| v0.7.0  | Wait Utilities     | ⏳ Planned     | Nov 03, 2025 | ⚪ 0%     |
+| v0.8.0  | Screenshot Utility | ⏳ Planned     | Nov 07, 2025 | ⚪ 0%     |
+| v0.9.0  | TestNG Listeners   | ⏳ Planned     | Nov 11, 2025 | ⚪ 0%     |
+| v1.0.0  | Allure Reporting   | ⏳ Planned     | Nov 15, 2025 | ⚪ 0%     |
+
+
+### 🚀 Upcoming Features
+```mermaid
+graph LR
+    A[v0.5.0 Driver Mgmt] --> B[v0.6.0 POM]
+    B --> C[v0.7.0 Wait Utils]
+    C --> D[v0.8.0 Screenshots]
+    D --> E[v0.9.0 Listeners]
+    E --> F[v1.0.0 Reporting]
+    
+    G[Multi-Browser] --> H[Page Objects]
+    H --> I[Smart Waits]
+    I --> J[Visual Testing]
+    J --> K[Event Handling]
+    K --> L[Dashboards]
+    
+    style A fill:#c8e6c9
+    style B fill:#ffecb3
+```
 
 ---
 
@@ -425,28 +556,29 @@ gantt
 flowchart LR
     A[Fork Repository] --> B[Create Feature Branch]
     B --> C[Implement Features]
-    C --> D[Add Exception Handling]
-    D --> E[Write Tests]
-    E --> F[Run Validations]
-    F --> G[Create Pull Request]
-    G --> H[CI/CD Pipeline]
-    H --> I[Code Review]
-    I --> J[Merge to Dev]
+    C --> D[Multi-Browser Testing]
+    D --> E[Thread Safety Verification]
+    E --> F[Create Pull Request]
+    F --> G[CI/CD Pipeline]
+    G --> H[Code Review]
+    H --> I[Merge to Dev]
     
-    subgraph "Validation Suite"
-        V1[POM Validation]
-        V2[Test Execution]
-        V3[Exception Coverage]
-        V4[Logging Verification]
+    subgraph "Testing Requirements v0.5.0"
+        T1[Chrome Compatibility]
+        T2[Firefox Compatibility]
+        T3[Edge Compatibility]
+        T4[Thread Safety]
+        T5[Driver Cleanup]
     end
     
-    F --> V1
-    F --> V2
-    F --> V3
-    F --> V4
+    D --> T1
+    D --> T2
+    D --> T3
+    E --> T4
+    E --> T5
     
-    style D fill:#ffebee
-    style V3 fill:#fff3e0
+    style D fill:#e3f2fd
+    style E fill:#fff3e0
 ```
 ### 📋 Contribution Guidelines
 #### ✅ Code Standards
@@ -485,14 +617,30 @@ flowchart LR
 - Code comments added
 - Configuration documented
 - Architecture diagrams updated
+
+### 🎯 Pull Request Checklist v0.5.0
+- Driver Management
+    - WebDriverManager integration working
+    - Multi-browser support verified
+    - Thread-safe operations implemented
+    - Driver cleanup properly handled
+
+- Testing
+    - All browsers tested (Chrome, Firefox, Edge)
+    - Headless mode verified
+    - Parallel execution compatibility
+    - Existing tests passing
+    
+- Code Quality
+    - BaseTest extension implemented
+    - Configuration properly utilized
+    - Exception handling integrated
+    - Logging comprehensive
 ---
 
 ## 👤 Author
 ### 🏆 ANUJ KUMAR
 **QA Consultant & Test Automation Architect**
-
----
-
 ### 📬 Contact Details
 
 | Type             | Details                                                              |
@@ -502,12 +650,17 @@ flowchart LR
 | 🏢 **GitHub**    | [Anuj-Patiyal](https://github.com/Anuj-Patiyal)                      |
 | 💼 **Portfolio** | [Hybrid Framework](https://github.com/Anuj-Patiyal/hybrid-framework) |
 
-
+### 🔧 Technical Expertise
+- **Test Automation**           : Selenium, TestNG, WebDriverManager, Multi-Browser
+- **Framework Architecture**    : Driver Management, Page Object Model, CI/CD
+- **Programming**               : Java 21, Design Patterns, Exception Handling
+- **DevOps**                    : GitHub Actions, Maven, Docker, Parallel Execution
+- **Quality Engineering**       : Test Strategy, Automation Planning, Code Quality
 ---
 
 ## 📜 License
 ```text
-Copyright (c) 2025 Anuj Kumar
+Copyright (c) 2025 ANUJ KUMAR
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -527,6 +680,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
 ### 💡 **Open Source Philosophy**
 *"First, solve the problem. Then, write the code."* – John Johnson
 
@@ -534,13 +688,11 @@ This framework embodies robust engineering principles with enterprise-grade exce
 
 <div align="center">
 
-🚀 **Ready to automate with confidence?**  
+🚀 **Ready to automate with confidence?**
 ⭐ **Star this repository if you find it helpful!**
 
 [🌟 Star on GitHub](https://github.com/Anuj-Patiyal/hybrid-framework) • [🐛 Report Issue](https://github.com/Anuj-Patiyal/hybrid-framework/issues) • [💡 Request Feature](https://github.com/Anuj-Patiyal/hybrid-framework/discussions)
 
 </div>
-
-```
 ---
 
