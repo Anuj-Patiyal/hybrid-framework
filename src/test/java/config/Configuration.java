@@ -95,4 +95,38 @@ public class Configuration {
             throw new FrameworkException("Failed to get property: " + key, e);
         }
     }
+
+    // New methods for v0.7.0 - Wait Configuration
+    public static int getWaitPollingInterval()
+    {
+        try {
+            int interval = getIntProperty("wait.polling.interval", 500);
+            logger.debug("Wait polling interval: {}ms", interval);
+            return interval;
+        } catch (Exception e) {
+            throw new FrameworkException("Failed to get wait polling interval configuration", e);
+        }
+    }
+
+    public static int getFluentWaitTimeout()
+    {
+        try {
+            int timeout = getIntProperty("wait.fluent.timeout", 30);
+            logger.debug("Fluent wait timeout: {} seconds", timeout);
+            return timeout;
+        } catch (Exception e) {
+            throw new FrameworkException("Failed to get fluent wait timeout configuration", e);
+        }
+    }
+
+    public static int getAjaxWaitTimeout()
+    {
+        try {
+            int timeout = getIntProperty("wait.ajax.timeout", 10);
+            logger.debug("AJAX wait timeout: {} seconds", timeout);
+            return timeout;
+        } catch (Exception e) {
+            throw new FrameworkException("Failed to get AJAX wait timeout configuration", e);
+        }
+    }
 }

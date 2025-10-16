@@ -49,6 +49,8 @@ public class TextBoxPage extends BasePage {
     public void enterFullName(String fullName)
     {
         logger.debug("Entering full name: {}", fullName);
+        // Wait for page to load before interacting
+        waitForPageToLoad();
         sendKeysToElement(fullNameInput, fullName);
     }
 
@@ -73,8 +75,12 @@ public class TextBoxPage extends BasePage {
     public void clickSubmit()
     {
         logger.debug("Clicking submit button using JavaScript to avoid ad interference");
+        // Wait for AJAX calls to complete if any
+        waitForAjax();
         // Use JavaScript click to avoid ad iframe issues
         clickUsingJavaScript(submitButton);
+        // Wait for the form submission to complete
+        waitForPageToLoad();
     }
 
     public void verifyOutputName(String expectedName)

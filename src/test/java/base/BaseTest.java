@@ -13,10 +13,12 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
+import waits.WaitUtils;
 
 public abstract class BaseTest {
     protected WebDriver driver;
     protected WebDriverWait wait;
+    protected WaitUtils waitUtils;
     protected static final Logger logger = LogManager.getLogger(BaseTest.class);
 
     @BeforeClass
@@ -30,6 +32,7 @@ public abstract class BaseTest {
 
             // Initialize wait
             wait = new WebDriverWait(driver, Duration.ofSeconds(Configuration.getIntProperty("explicit.wait", 10)));
+            waitUtils = new WaitUtils(driver);
 
             logger.info("Base test setup completed successfully");
 
@@ -99,6 +102,11 @@ public abstract class BaseTest {
     protected WebDriverWait getWait()
     {
         return wait;
+    }
+
+    protected WaitUtils getWaitUtils()
+    {
+        return waitUtils;
     }
 
     protected void navigateTo(String url)
