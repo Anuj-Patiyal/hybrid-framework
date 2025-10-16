@@ -6,16 +6,16 @@ import exceptions.FrameworkException;
 import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import waits.WaitUtils;
 
 public abstract class BasePage {
     protected WebDriver driver;
     protected WebDriverWait wait;
+    protected WaitUtils waitUtils;
     protected JavascriptExecutor jsExecutor;
     protected static final Logger logger = LogManager.getLogger(BasePage.class);
 
@@ -23,6 +23,7 @@ public abstract class BasePage {
     {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(Configuration.getIntProperty("explicit.wait", 10)));
+        this.waitUtils = new WaitUtils(driver);
         this.jsExecutor = (JavascriptExecutor)driver;
         PageFactory.initElements(driver, this);
         logger.debug("Initialized BasePage for: {}", this.getClass().getSimpleName());
@@ -124,5 +125,36 @@ public abstract class BasePage {
             logger.error("Failed to navigate to URL: {}", url, e);
             throw new FrameworkException("Navigation failed to: " + url, e);
         }
+    }
+
+    // New methods for v0.7.0 - Smart Waiting Strategy
+    protected void smartWaitForElement(By locator)
+    {
+        waitUtils.waitForElementVisible(locator);
+    }
+
+    protected void waitForPageToLoad()
+    {
+        waitUtils.waitForPageLoad();
+    }
+
+    protected void waitForAjax()
+    {
+        waitUtils.waitForAjaxToComplete();
+    }
+
+    protected WebElement waitForElementClickable(By locator)
+    {
+        return waitUtils.waitForElementClickable(locator);
+    }
+
+    protected boolean waitForElementInvisible(By locator)
+    {
+        return waitUtils.waitForElementInvisible(locator);
+    }
+
+    protected boolean waitForTextPresent(By locator, String text)
+    {
+        return waitUtils.waitForTextPresent(locator, text);
     }
 }
