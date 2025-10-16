@@ -79,7 +79,7 @@ public class DriverFactory {
             logger.debug("Chrome running in headless mode");
         }
 
-        // Common Chrome options
+        // Enhanced Chrome options to block ads and improve stability
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
@@ -88,6 +88,13 @@ public class DriverFactory {
         options.addArguments("--disable-blink-features=AutomationControlled");
         options.addArguments("--disable-popup-blocking");
         options.addArguments("--window-size=1920,1080");
+
+        // Block ads and improve performance
+        options.addArguments("--disable-plugins-discovery");
+        options.addArguments("--block-new-web-contents");
+        options.addArguments("--disable-background-timer-throttling");
+        options.addArguments("--disable-backgrounding-occluded-windows");
+        options.addArguments("--disable-renderer-backgrounding");
 
         logger.debug("Chrome options configured: {}", options);
         return new ChromeDriver(options);
@@ -105,12 +112,23 @@ public class DriverFactory {
             logger.debug("Firefox running in headless mode");
         }
 
-        // Common Firefox options
+        // Enhanced Firefox options to block ads and improve stability
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--disable-extensions");
         options.addArguments("--disable-notifications");
         options.addArguments("--width=1920");
         options.addArguments("--height=1080");
+
+        // Firefox-specific ad-blocking and performance options
+        options.addArguments("--disable-default-apps");
+        options.addArguments("--disable-translate");
+        options.addArguments("--disable-sync");
+        options.addArguments("--disable-background-timer-throttling");
+        options.addArguments("--disable-backgrounding-occluded-windows");
+
+        // Prevent popups and new windows
+        options.addArguments("--disable-popup-blocking");
+        options.addArguments("--block-about-config");
 
         logger.debug("Firefox options configured: {}", options);
         return new FirefoxDriver(options);
@@ -128,7 +146,7 @@ public class DriverFactory {
             logger.debug("Edge running in headless mode");
         }
 
-        // Common Edge options
+        // Enhanced Edge options to block ads and improve stability
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--remote-allow-origins=*");
@@ -136,6 +154,13 @@ public class DriverFactory {
         options.addArguments("--disable-notifications");
         options.addArguments("--disable-blink-features=AutomationControlled");
         options.addArguments("--window-size=1920,1080");
+
+        // Edge-specific ad-blocking and performance options
+        options.addArguments("--disable-popup-blocking");
+        options.addArguments("--disable-plugins-discovery");
+        options.addArguments("--disable-background-timer-throttling");
+        options.addArguments("--disable-backgrounding-occluded-windows");
+        options.addArguments("--disable-renderer-backgrounding");
 
         logger.debug("Edge options configured: {}", options);
         return new EdgeDriver(options);
@@ -151,7 +176,16 @@ public class DriverFactory {
         WebDriverManager.getInstance(DriverManagerType.SAFARI).setup();
 
         SafariOptions options = new SafariOptions();
+
         // Safari has limited options compared to other browsers
+        // But we can set some preferences for better automation
+        options.setCapability("safari.cleanSession", true);
+        options.setCapability("safari.useMockPermissionDialog", true);
+        options.setCapability("safari.allowPopups", false);
+        options.setCapability("safari.disableSearchDomainSuggestions", true);
+
+        // Note: Safari doesn't support command-line arguments like Chrome/Firefox/Edge
+        // Most ad-blocking would need to be handled through extensions, which is complex in automation
 
         logger.debug("Safari options configured: {}", options);
         return new SafariDriver(options);

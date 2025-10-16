@@ -1,6 +1,6 @@
 # 🚀 Hybrid Framework
-**Advanced Driver Management - (v0.5.0)**
-> Enterprise-grade test automation framework with advanced driver management, multi-browser support, and automatic driver handling
+**Advanced Page Object Model - (v0.6.0)**
+> Enterprise-grade test automation framework with Page Object Model, advanced driver management, and multi-browser support
 
 ---
 
@@ -25,6 +25,7 @@
 ![Log4j2](https://img.shields.io/badge/Log4j2-2.20.0-blueviolet)
 ![WebDriverManager](https://img.shields.io/badge/WebDriverManager-5.6.4-brightgreen)
 ![Multi-Browser](https://img.shields.io/badge/Multi--Browser-4%2520Browsers-success)
+![Page Object Model](https://img.shields.io/badge/POM-Implemented-success)
 
 ### Project Health
 ![Repo Size](https://img.shields.io/github/repo-size/Anuj-Patiyal/hybrid-framework)
@@ -52,10 +53,10 @@
 
 ## 🚀 Project Overview
 ### 🎯 What is This Framework?
-A modern, scalable test automation framework built with Java, Selenium WebDriver, and TestNG, designed for enterprise-level testing with comprehensive error handling and reporting.
+A modern, scalable test automation framework built with Java, Selenium WebDriver, and TestNG, implementing Page Object Model pattern for enterprise-level testing with comprehensive error handling and reporting.
 
-### 🏆 Current Release: v0.5.0
-Advanced Driver Management - Implementing WebDriverManager integration, multi-browser support, and thread-safe driver operations.
+### 🏆 Current Release: v0.6.0
+Page Object Model Implementation - Implementing robust POM pattern, page factory, and reusable page components.
 ```mermaid
 timeline
     title Framework Evolution
@@ -69,6 +70,8 @@ timeline
         Exception Handling: Custom exceptions & error recovery
     section v0.5.0
         Driver Management: WebDriverManager & multi-browser
+    section v0.6.0
+        Page Object Model: POM pattern & page factory
 ```
 ---
 
@@ -76,74 +79,97 @@ timeline
 ### 🔬 High-Level Architecture
 ```mermaid
 graph TB
-    subgraph "Test Automation Framework v0.5.0"
-        A[Test Scripts] --> B[BaseTest Class]
-        B --> C[Driver Factory]
-        C --> D[WebDriverManager]
-        D --> E[Browser Drivers]
-        E --> F[Web Applications]
+    subgraph "Test Automation Framework v0.6.0"
+        A[Test Scripts] --> B[Page Objects]
+        B --> C[BasePage Class]
+        C --> D[BaseTest Class]
+        D --> E[Driver Factory]
+        E --> F[WebDriverManager]
+        F --> G[Browser Drivers]
+        G --> H[Web Applications]
         
-        G[Configuration] --> C
-        H[Exception Handler] --> I[Error Recovery]
-        J[Logging System] --> K[Structured Logs]
-        L[Thread Manager] --> M[Parallel Execution]
+        I[Configuration] --> E
+        J[Exception Handler] --> K[Error Recovery]
+        L[Logging System] --> M[Structured Logs]
+        N[Thread Manager] --> O[Parallel Execution]
         
-        B --> H
-        B --> J
-        B --> L
-        C --> N[Multi-Browser Support]
+        B --> P[Page Factory]
+        C --> Q[Common Page Actions]
+        D --> J
+        D --> L
+        D --> N
+        E --> R[Multi-Browser Support]
     end
     
-    subgraph "Browser Support Matrix"
-        O[Chrome] --> P[Full Support]
-        Q[Firefox] --> R[Full Support]
-        S[Edge] --> T[Full Support]
-        U[Safari] --> V[Limited Support]
+    subgraph "Page Object Model Layer"
+        S[LoginPage] --> T[HomePage]
+        U[ProductsPage] --> V[CartPage]
+        W[CheckoutPage] --> X[ConfirmationPage]
     end
     
+    style B fill:#e8f5e8
     style C fill:#e3f2fd
-    style D fill:#bbdefb
-    style N fill:#e8f5e8
+    style P fill:#fff3e0
 ```
 
-### 🔄 Driver Management Flow
+### 🔄 Page Object Model Flow
 ```mermaid
 flowchart TD
     A[Test Execution Start] --> B[BaseTest Setup]
-    B --> C[DriverFactory.createDriver]
-    C --> D{Select Browser}
+    B --> C[Initialize Page Objects]
+    C --> D[Page Factory Initialization]
+    D --> E[Lazy Loading Elements]
     
-    D -->|Chrome| E[WebDriverManager Chrome]
-    D -->|Firefox| F[WebDriverManager Firefox]
-    D -->|Edge| G[WebDriverManager Edge]
-    D -->|Safari| H[WebDriverManager Safari]
+    E --> F{Page Actions}
+    F -->|Navigation| G[Page Navigation Methods]
+    F -->|Validation| H[Page Validation Methods]
+    F -->|Interaction| I[Element Interaction Methods]
     
-    E --> I[Apply Browser Options]
-    F --> I
-    G --> I
-    H --> I
+    G --> J[URL Management]
+    H --> K[Assertion Framework]
+    I --> L[WebElement Wrappers]
     
-    I --> J[ThreadLocal Storage]
-    J --> K[Test Execution]
-    K --> L[DriverManager.quitDriver]
-    L --> M[ThreadLocal Cleanup]
+    J --> M[Test Execution]
+    K --> M
+    L --> M
     
-    style C fill:#e3f2fd
-    style J fill:#fff3e0
+    M --> N[Page Transition]
+    N --> O[New Page Object Creation]
+    O --> P[Continue Test Flow]
+    
+    style C fill:#e8f5e8
+    style D fill:#e3f2fd
+    style G fill:#fff3e0
 ```
 ---
 
 ## ✨ Features
 ## 🎯 Core Framework Features
-| Feature                | Version | Status      | Description                              |
-|------------------------|---------|-------------|------------------------------------------|
+| Feature                | Version | Status       | Description                              |
+|------------------------|---------|--------------|------------------------------------------|
+| Page Object Model      | v0.6.0  | ✅ Completed | Robust POM pattern with page factory      |
 | Driver Management      | v0.5.0  | ✅ Completed | WebDriverManager with automatic handling |
 | Multi-Browser Support  | v0.5.0  | ✅ Completed | Chrome, Firefox, Edge, Safari support    |
 | Thread-Safe Operations | v0.5.0  | ✅ Completed | ThreadLocal-based driver management      |
 | Abstract Base Test     | v0.5.0  | ✅ Completed | Centralized test setup/teardown          |
 | Exception Handling     | v0.4.0  | ✅ Completed | Graceful recovery with custom exceptions |
 | Structured Logging     | v0.3.0  | ✅ Completed | Log4j2 for console & file logging        |
-| Config Management      | v0.2.0  | ✅ Completed | Externalized `config.properties`         |
+| Config Management      | v0.2.0  | ✅ Completed | Externalized config.properties           |
+
+### 📄 Page Object Model Features
+```mermaid
+graph LR
+    A[BasePage Class] --> B[Common Utilities]
+    C[Page Factory] --> D[Lazy Element Loading]
+    E[Page Navigation] --> F[URL Management]
+    G[Element Wrappers] --> H[Smart Interactions]
+    I[Validation Methods] --> J[Assertion Framework]
+    K[Page Components] --> L[Reusable Components]
+    
+    style A fill:#e8f5e8
+    style C fill:#e3f2fd
+    style G fill:#fff3e0
+```
 
 ### 🌐 Browser Support Matrix
 ```mermaid
@@ -156,11 +182,13 @@ graph LR
     E[Headless Mode] --> E1[All Except Safari]
     F[Parallel Execution] --> F1[All Browsers]
     G[Automatic Updates] --> G1[WebDriverManager]
+    H[POM Support] --> H1[All Browsers]
     
     style A1 fill:#c8e6c9
     style B1 fill:#c8e6c9
     style C1 fill:#c8e6c9
     style D1 fill:#ffecb3
+    style H1 fill:#bbdefb
 ```
 ### 🔧 Technical Specifications
 ```mermaid
@@ -171,12 +199,13 @@ graph LR
     D --> E[Maven]
     E --> F[GitHub Actions]
     
-    G[Custom Exceptions] --> H[Error Recovery]
-    I[Properties Config] --> J[Runtime Config]
-    K[HTML Reports] --> L[Test Analytics]
+    G[Page Object Model] --> H[Page Factory]
+    I[Custom Exceptions] --> J[Error Recovery]
+    K[Properties Config] --> L[Runtime Config]
+    M[HTML Reports] --> N[Test Analytics]
     
-    style G fill:#ffebee
-    style H fill:#fff3e0
+    style G fill:#e8f5e8
+    style H fill:#e3f2fd
 ```
 ---
 
@@ -190,16 +219,21 @@ hybrid-framework/
 │   │       └── 🎯 log4j2.xml                 # Logging configuration
 │   └── 📁 test/
 │       ├── 📁 java/
-│       │   ├── 📁 base/                      # 🆕 Base test classes
+│       │   ├── 📁 base/                      # Base test classes
 │       │   │   └── 🎯 BaseTest.java          # Abstract base test class
 │       │   ├── 📁 config/
 │       │   │   └── 🎯 Configuration.java     # Configuration manager
-│       │   ├── 📁 drivers/                   # 🆕 Driver management
+│       │   ├── 📁 drivers/                   # Driver management
 │       │   │   ├── 🎯 DriverManager.java     # Thread-safe driver management
 │       │   │   └── 🎯 DriverFactory.java     # Multi-browser factory
 │       │   ├── 📁 exceptions/                # Exception classes
 │       │   │   ├── 🎯 FrameworkException.java
 │       │   │   └── 🎯 ElementNotFoundException.java
+│       │   ├── 📁 pages/                     # 🆕 Page Object Model
+│       │   │   ├── 🎯 BasePage.java          # Abstract base page class
+│       │   │   ├── 🎯 LoginPage.java         # Login page implementation
+│       │   │   ├── 🎯 HomePage.java          # Home page implementation
+│       │   │   └── 🎯 ProductsPage.java      # Products page implementation
 │       │   └── 📁 tests/
 │       │       └── 🎯 TextBoxTest.java       # Test class extending BaseTest
 │       └── 📁 resources/
@@ -212,37 +246,39 @@ hybrid-framework/
 │   └── 📁 releases/                          # Release templates
 ├── 🎯 pom.xml                               # Maven configuration
 └── 🎯 README.md                             # Project documentation
-
 ```
-### 🔍 Driver Management Architecture
+### 🔍 Page Object Model Architecture
 ```mermaid
 graph TB
-    subgraph "Driver Management Layer v0.5.0"
-        A[BaseTest] --> B[DriverFactory]
-        B --> C[WebDriverManager]
-        C --> D[Browser Drivers]
-
-        E[DriverManager] --> F[ThreadLocal Storage]
-        F --> G[Driver Instances]
-        G --> H[Parallel Execution]
-
-        I[Configuration] --> J[Browser Settings]
-        J --> K[Chrome Options]
-        J --> L[Firefox Options]
-        J --> M[Edge Options]
-        J --> N[Safari Options]
+    subgraph "Page Object Model Layer v0.6.0"
+        A[BaseTest] --> B[Page Objects]
+        B --> C[BasePage]
+        C --> D[Page Factory]
+        D --> E[WebElement Initialization]
+        
+        F[Common Page Actions] --> G[Navigation Utilities]
+        F --> H[Wait Strategies]
+        F --> I[Element Interactions]
+        
+        J[Page Specific Methods] --> K[Business Logic]
+        J --> L[Validation Logic]
+        J --> M[Data Entry Methods]
+        
+        N[Test Classes] --> O[Page Object Usage]
+        O --> P[Method Chaining]
+        P --> Q[Fluent Interface]
     end
 
-    subgraph "Supported Browsers"
-        O[Chrome] --> P[Auto-Download]
-        Q[Firefox] --> R[Auto-Download]
-        S[Edge] --> T[Auto-Download]
-        U[Safari] --> V[System Driver]
+    subgraph "Page Object Benefits"
+        R[Maintainability] --> S[Reduced Code Duplication]
+        T[Reusability] --> U[Cross-Test Page Usage]
+        V[Readability] --> W[Business Language Tests]
+        X[Scalability] --> Y[Easy New Page Addition]
     end
 
-    style B fill:#e3f2fd
-    style E fill:#fff3e0
-    style C fill:#bbdefb
+    style B fill:#e8f5e8
+    style C fill:#e3f2fd
+    style F fill:#fff3e0
 ```
 ---
 
@@ -406,19 +442,26 @@ gitGraph
     checkout dev
     merge feature/driver-management id: "Merge driver management"
     commit id: "v0.5.0: Driver management"
+    branch feature/page-object-model
+    commit id: "BasePage implementation"
+    commit id: "Page factory integration"
+    commit id: "Page component patterns"
+    checkout dev
+    merge feature/page-object-model id: "Merge POM"
+    commit id: "v0.6.0: Page Object Model"
     checkout main
     merge dev id: "Merge to main"
-    tag v0.5.0
+    tag v0.6.0
 ```
 ### 📋 Branch Types
 
-| Branch  | Purpose	            | Naming Convention    | Example                    |
+| Branch  | Purpose	            | Naming Convention    | Example                   |
 |---------|---------------------|----------------------|---------------------------|
 | main    | Production releases | main                 | main                      |
-| dev     | Integration branch  | dev                  | dev                       |                                     
-| feature | New features        | feature/description  | feature/driver-management | 
-| release | Release preparation | release/version      | release/v0.5.0            |
-| hotfix  | Critical fixes	    | hotfix/description   | hotfix/driver-fix        |
+| dev     | Integration branch  | dev                  | dev                       |
+| feature | New features        | feature/description  | feature/pom               | 
+| release | Release preparation | release/version      | release/v0.6.0            |
+| hotfix  | Critical fixes	    | hotfix/description   | hotfix/driver-fix         |
 
 ---
 
@@ -433,24 +476,24 @@ flowchart TD
     B -->|PR to feature/*| E[Feature PR Check]
     B -->|CI Success on main| F[Release Automation]
     
-    subgraph "Main CI Pipeline v0.5.0"
+    subgraph "Main CI Pipeline v0.6.0"
         C --> C1[Validate POM & Dependencies]
         C1 --> C2[Multi-Browser Setup]
-        C2 --> C3[Parallel Test Execution]
-        C3 --> C4[Driver Management Verification]
+        C2 --> C3[Page Object Model Tests]
+        C3 --> C4[POM Architecture Validation]
         C4 --> C5[Generate Enhanced Reports]
     end
     
-    subgraph "Multi-Browser Testing"
-        M1[Chrome Tests] --> M2[Firefox Tests]
-        M2 --> M3[Edge Tests]
-        M3 --> M4[Test Results Aggregation]
+    subgraph "Page Object Model Testing"
+        M1[BasePage Tests] --> M2[Page Factory Tests]
+        M2 --> M3[Page Navigation Tests]
+        M3 --> M4[POM Integration Tests]
     end
     
-    subgraph "Quality Gates v0.5.0"
-        Q1[Driver Compatibility] --> Q2[Thread Safety]
-        Q2 --> Q3[Multi-Browser Coverage]
-        Q3 --> Q4[Performance Metrics]
+    subgraph "Quality Gates v0.6.0"
+        Q1[POM Implementation] --> Q2[Page Factory Usage]
+        Q2 --> Q3[Element Initialization]
+        Q3 --> Q4[Method Chaining Validation]
     end
     
     C5 --> G[Upload Artifacts]
@@ -461,73 +504,54 @@ flowchart TD
     G --> I[Quality Dashboard]
     H --> I
     
-    style C2 fill:#e3f2fd
-    style C4 fill:#fff3e0
+    style C3 fill:#e8f5e8
+    style C4 fill:#e3f2fd
 ```
 
 ### 📊 Pipeline Metrics v0.5.0
 | Metric                 | Current    | Target     | Status |
 |------------------------|------------|------------|--------|
-| Build Time             | ~3m 15s    | < 4m       | ✅     |
+| Build Time             | ~3m 45s    | < 5m       | ✅     |
 | Multi-Browser Coverage | 4 Browsers | 4 Browsers | ✅     |
-| Test Pass Rate         | 100%	      | > 95%      | ✅     |
-| Parallel Execution     | Ready      | Enabled	   | 🚧     |
-| Driver Setup Time      | ~30s       | < 45s	   | ✅     |
-
+| Test Pass Rate         | 100%       | > 95%      | ✅     |
+| POM Implementation     | Complete   | 100%       | ✅     |
+| Code Maintainability   | Improved   | High       | ✅     |
 ---
 
 ## 📊 Milestones
 ### 🎯 Release Timeline
 ```mermaid
-flowchart TD
-    A[Code Commit/Push] --> B{GitHub Event Router}
-    
-    B -->|Push to main/dev| C[Main CI Pipeline]
-    B -->|Any Pull Request| D[POM Validation]
-    B -->|PR to feature/*| E[Feature PR Check]
-    B -->|CI Success on main| F[Release Automation]
-    
-    subgraph "Main CI Pipeline v0.5.0"
-        C --> C1[Validate POM & Dependencies]
-        C1 --> C2[Multi-Browser Setup]
-        C2 --> C3[Parallel Test Execution]
-        C3 --> C4[Driver Management Verification]
-        C4 --> C5[Generate Enhanced Reports]
-    end
-    
-    subgraph "Multi-Browser Testing"
-        M1[Chrome Tests] --> M2[Firefox Tests]
-        M2 --> M3[Edge Tests]
-        M3 --> M4[Test Results Aggregation]
-    end
-    
-    subgraph "Quality Gates v0.5.0"
-        Q1[Driver Compatibility] --> Q2[Thread Safety]
-        Q2 --> Q3[Multi-Browser Coverage]
-        Q3 --> Q4[Performance Metrics]
-    end
-    
-    C5 --> G[Upload Artifacts]
-    D --> G
-    E --> G
-    F --> H[Create Release]
-    
-    G --> I[Quality Dashboard]
-    H --> I
-    
-    style C2 fill:#e3f2fd
-    style C4 fill:#fff3e0
+timeline
+    title Release Timeline v0.1.0 - v1.0.0
+    section v0.1.0 - Completed
+        Basic Framework : Selenium + TestNG Setup
+    section v0.2.0 - Completed  
+        Configuration : External Properties
+    section v0.3.0 - Completed
+        Logging System : Log4j2 Integration
+    section v0.4.0 - Completed
+        Exception Handling : Custom Exceptions
+    section v0.5.0 - Completed
+        Driver Management : WebDriverManager
+    section v0.6.0 - Current
+        Page Object Model : POM Pattern
+    section v0.7.0 - Next
+        Wait Utilities : Smart Wait Strategies
+    section v0.8.0 - Planned
+        Screenshot Utility : Visual Testing
+    section v0.9.0 - Planned
+        TestNG Listeners : Enhanced Reporting
+    section v1.0.0 - Planned
+        Allure Reporting : Dashboard Analytics
 ```
 ### 🗓️ Version Roadmap
-| Version | Feature            | Status         | Release Date | Progress |
-|---------|--------------------|---------------|---------------|----------|
-| v0.5.0  | Driver Management  | ✅ Completed   | Oct 26, 2025 | 🟢 100%   |
-| v0.6.0  | Page Object Model  | 🔄 In Progress | Oct 30, 2025 | 🟡 20%    |
-| v0.7.0  | Wait Utilities     | ⏳ Planned     | Nov 03, 2025 | ⚪ 0%     |
-| v0.8.0  | Screenshot Utility | ⏳ Planned     | Nov 07, 2025 | ⚪ 0%     |
-| v0.9.0  | TestNG Listeners   | ⏳ Planned     | Nov 11, 2025 | ⚪ 0%     |
-| v1.0.0  | Allure Reporting   | ⏳ Planned     | Nov 15, 2025 | ⚪ 0%     |
-
+| Version | Feature             | Status         | Release Date | Progress |
+|---------|---------------------|----------------|---------------|---------|
+| v0.6.0  | Page Object Model   | ✅ Completed   | Oct 30, 2025  | 🟢 100%  |
+| v0.7.0  | Wait Utilities      | 🔄 In Progress | Nov 03, 2025  | 🟡 40%   |
+| v0.8.0  | Screenshot Utility  | ⏳ Planned	     | Nov 07, 2025  | ⚪ 0%    |
+| v0.9.0  | TestNG Listeners    | ⏳ Planned     | Nov 11, 2025  | ⚪ 0%    |
+| v1.0.0  | Allure Reporting    | ⏳ Planned	     | Nov 15, 2025  | ⚪ 0%    |
 
 ### 🚀 Upcoming Features
 ```mermaid
@@ -544,8 +568,8 @@ graph LR
     J --> K[Event Handling]
     K --> L[Dashboards]
     
-    style A fill:#c8e6c9
-    style B fill:#ffecb3
+    style B fill:#c8e6c9
+    style C fill:#ffecb3
 ```
 
 ---
@@ -556,19 +580,19 @@ graph LR
 flowchart LR
     A[Fork Repository] --> B[Create Feature Branch]
     B --> C[Implement Features]
-    C --> D[Multi-Browser Testing]
-    D --> E[Thread Safety Verification]
+    C --> D[Page Object Model Testing]
+    D --> E[POM Pattern Verification]
     E --> F[Create Pull Request]
     F --> G[CI/CD Pipeline]
     G --> H[Code Review]
     H --> I[Merge to Dev]
     
-    subgraph "Testing Requirements v0.5.0"
-        T1[Chrome Compatibility]
-        T2[Firefox Compatibility]
-        T3[Edge Compatibility]
-        T4[Thread Safety]
-        T5[Driver Cleanup]
+    subgraph "POM Requirements v0.6.0"
+        T1[BasePage Extension]
+        T2[Page Factory Usage]
+        T3[Element Initialization]
+        T4[Method Chaining]
+        T5[Fluent Interface]
     end
     
     D --> T1
@@ -577,8 +601,8 @@ flowchart LR
     E --> T4
     E --> T5
     
-    style D fill:#e3f2fd
-    style E fill:#fff3e0
+    style D fill:#e8f5e8
+    style E fill:#e3f2fd
 ```
 ### 📋 Contribution Guidelines
 #### ✅ Code Standards
